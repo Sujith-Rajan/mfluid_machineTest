@@ -2,6 +2,7 @@
 
 import { useState, useRef, useCallback } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 export default function RegisterForm() {
     const [formData, setFormData] = useState({
@@ -16,6 +17,7 @@ export default function RegisterForm() {
     const [errors, setErrors] = useState<Record<string, string>>({});
     const [isLoading, setIsLoading] = useState(false);
     const [isDragging, setIsDragging] = useState(false);
+    const router = useRouter();
     const fileInputRef = useRef<HTMLInputElement>(null);
 
     const validateForm = () => {
@@ -118,8 +120,7 @@ export default function RegisterForm() {
 
             if (response.ok) {
                 console.log("Registration successful", data);
-                alert("Registration Successful!");
-                // Redirect to login
+                router.push("/login");
             } else {
                 setErrors({ form: data.message || "Registration failed. Please try again." });
             }
