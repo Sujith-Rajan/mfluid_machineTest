@@ -2,9 +2,9 @@ import { NextResponse } from "next/server";
 import connectToDatabase from "@/lib/mongodb";
 import Timesheet from "@/models/Timesheet";
 
-export async function PUT(req: Request, { params }: { params: { id: string } }) {
+export async function PUT(req: Request, { params }: { params: Promise<{ id: string }> }) {
   try {
-    const { id } = params;
+    const { id } = await params;
     const { date, hours, task, description, status } = await req.json();
 
     if (!id) {
