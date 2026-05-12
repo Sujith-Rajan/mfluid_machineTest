@@ -15,7 +15,7 @@ export default function LandingPage() {
             Welcome
           </h1>
           <p className="text-xl md:text-2xl text-zinc-500 dark:text-zinc-400 max-w-lg mx-auto animate-in fade-in slide-in-from-bottom-6 duration-1000 delay-200">
-            User time sheet management application.
+            User Time Sheet Management Application.
           </p>
         </div>
 
